@@ -140,7 +140,7 @@ basic.forever(function () {
         basic.pause(1)
         Lichtsensor = pins.analogReadPin(AnalogReadWritePin.P2)
         pins.digitalWritePin(DigitalPin.P3, 0)
-        if (450 < Lichtsensor) {
+        if (450 > Lichtsensor) {
             Warnung = 1
         } else {
             Warnung = 0
