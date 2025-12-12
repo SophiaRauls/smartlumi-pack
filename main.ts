@@ -128,10 +128,12 @@ basic.forever(function () {
             zeigeAchtung()
             basic.pause(500)
             strip.clear()
+            strip.show()
             basic.pause(500)
         }
     } else {
         zeigeSmiley()
+        basic.pause(150)
     }
 })
 basic.forever(function () {
