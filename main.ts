@@ -106,6 +106,7 @@ function zeigeSmiley () {
     strip.setPixelColor(62, zeile8)
     strip.setPixelColor(63, zeile8)
 }
+let Lichtsensor = 0
 let zeile8 = 0
 let zeile7 = 0
 let zeile6 = 0
@@ -119,6 +120,13 @@ let dunkelRot = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 128, NeoPixelMode.RGB)
 basic.forever(function () {
+    while (true) {
+        pins.digitalWritePin(DigitalPin.P3, 1)
+        basic.pause(1)
+        Lichtsensor = pins.analogReadPin(AnalogReadWritePin.P2)
+        pins.digitalWritePin(DigitalPin.P3, 0)
+        basic.showNumber(Lichtsensor)
+    }
     while (true) {
         zeigeAchtung()
         strip.show()
