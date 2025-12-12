@@ -30,6 +30,7 @@ function zeigeAchtung () {
     strip.setPixelColor(36, hellRot)
     strip.setPixelColor(51, hellRot)
     strip.setPixelColor(52, hellRot)
+    strip.show()
 }
 function zeigeSmiley () {
     zeile1 = neopixel.rgb(225, 0, 0)
@@ -105,6 +106,7 @@ function zeigeSmiley () {
     strip.setPixelColor(61, zeile8)
     strip.setPixelColor(62, zeile8)
     strip.setPixelColor(63, zeile8)
+    strip.show()
 }
 let Lichtsensor = 0
 let Warnung = 0
@@ -121,12 +123,15 @@ let dunkelRot = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 128, NeoPixelMode.RGB)
 basic.forever(function () {
-    if (Warnung) {
-        zeigeAchtung()
-        strip.show()
+    if (Warnung == 1) {
+        for (let index = 0; index < 3; index++) {
+            zeigeAchtung()
+            basic.pause(500)
+            strip.clear()
+            basic.pause(500)
+        }
     } else {
         zeigeSmiley()
-        strip.show()
     }
 })
 basic.forever(function () {
