@@ -154,8 +154,10 @@ basic.forever(function () {
         }
         if (input.pinIsPressed(TouchPin.P1)) {
             AnAus = 1
+            basic.setLedColors(0x000000, 0x00ff00, 0x000000)
         } else {
             AnAus = 0
+            basic.setLedColors(0xff0000, 0xff0000, 0xff0000)
         }
     }
     while (true) {
