@@ -125,6 +125,7 @@ let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 128, NeoPixelMode.RGB)
 basic.forever(function () {
     if (AnAus == 1) {
+        basic.setLedColors(0x000000, 0x00ff00, 0x000000)
         if (Warnung == 1) {
             for (let index = 0; index < 3; index++) {
                 zeigeAchtung()
@@ -138,6 +139,8 @@ basic.forever(function () {
             basic.pause(150)
         }
     } else {
+        basic.setLedColors(0xff0000, 0xff0000, 0xff0000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
         strip.clear()
     }
 })
@@ -154,10 +157,8 @@ basic.forever(function () {
         }
         if (input.pinIsPressed(TouchPin.P1)) {
             AnAus = 1
-            basic.setLedColors(0x000000, 0x00ff00, 0x000000)
         } else {
             AnAus = 0
-            basic.setLedColors(0xff0000, 0xff0000, 0xff0000)
         }
     }
     while (true) {
