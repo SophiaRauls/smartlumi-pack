@@ -1,7 +1,9 @@
 function zeigeAchtung () {
     dunkelRot = neopixel.rgb(0, 204, 0)
     hellRot = neopixel.rgb(130, 0, 0)
-    strip.showColor(neopixel.colors(NeoPixelColors.Black))
+    for (let Index = 0; Index <= 63; Index++) {
+        strip.setPixelColor(Index, neopixel.colors(NeoPixelColors.Black))
+    }
     strip.setPixelColor(2, dunkelRot)
     strip.setPixelColor(3, dunkelRot)
     strip.setPixelColor(4, dunkelRot)
@@ -41,7 +43,9 @@ function zeigeSmiley () {
     zeile6 = neopixel.rgb(0, 229, 225)
     zeile7 = neopixel.rgb(0, 13, 255)
     zeile8 = neopixel.rgb(255, 0, 255)
-    strip.showColor(neopixel.colors(NeoPixelColors.Black))
+    for (let Index = 0; Index <= 63; Index++) {
+        strip.setPixelColor(Index, neopixel.colors(NeoPixelColors.Black))
+    }
     strip.setPixelColor(0, zeile1)
     strip.setPixelColor(1, zeile1)
     strip.setPixelColor(2, zeile1)
