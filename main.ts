@@ -110,6 +110,7 @@ function zeigeSmiley () {
 }
 let Lichtsensor = 0
 let Warnung = 0
+let AnAus = 0
 let zeile8 = 0
 let zeile7 = 0
 let zeile6 = 0
@@ -123,17 +124,21 @@ let dunkelRot = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 128, NeoPixelMode.RGB)
 basic.forever(function () {
-    if (Warnung == 1) {
-        for (let index = 0; index < 3; index++) {
-            zeigeAchtung()
-            basic.pause(500)
-            strip.clear()
-            strip.show()
-            basic.pause(500)
+    if (AnAus == 1) {
+        if (Warnung == 1) {
+            for (let index = 0; index < 3; index++) {
+                zeigeAchtung()
+                basic.pause(500)
+                strip.clear()
+                strip.show()
+                basic.pause(500)
+            }
+        } else {
+            zeigeSmiley()
+            basic.pause(150)
         }
     } else {
-        zeigeSmiley()
-        basic.pause(150)
+        strip.clear()
     }
 })
 basic.forever(function () {
@@ -146,6 +151,11 @@ basic.forever(function () {
             Warnung = 1
         } else {
             Warnung = 0
+        }
+        if (input.pinIsPressed(TouchPin.P1)) {
+            AnAus = 1
+        } else {
+            AnAus = 0
         }
     }
     while (true) {
