@@ -178,39 +178,18 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    while (true) {
-        pins.digitalWritePin(DigitalPin.P3, 1)
-        basic.pause(1)
-        Lichtsensor = pins.analogReadPin(AnalogReadWritePin.P2)
-        pins.digitalWritePin(DigitalPin.P3, 0)
-        if (450 > Lichtsensor) {
-            Warnung = 1
-        } else {
-            Warnung = 0
-        }
-        if (input.pinIsPressed(TouchPin.P1)) {
-            AnAus = 1
-        } else {
-            AnAus = 0
-        }
+    pins.digitalWritePin(DigitalPin.P3, 1)
+    basic.pause(1)
+    Lichtsensor = pins.analogReadPin(AnalogReadWritePin.P2)
+    pins.digitalWritePin(DigitalPin.P3, 0)
+    if (400 > Lichtsensor) {
+        Warnung = 1
+    } else {
+        Warnung = 0
     }
-    while (true) {
-        zeigeAchtung()
-        strip.show()
-        basic.pause(500)
-        zeigeSmiley()
-        strip.show()
-        basic.pause(500)
-    }
-    for (let index = 0; index < 9; index++) {
-        for (let index2 = 0; index2 <= 63; index2++) {
-            strip.setPixelColor(64 + index2, neopixel.colors(NeoPixelColors.Red))
-            strip.show()
-            basic.pause(500)
-        }
-        strip.showColor(neopixel.colors(NeoPixelColors.Purple))
-        basic.pause(200)
-        basic.showString("Stop")
-        basic.pause(100)
+    if (input.pinIsPressed(TouchPin.P1)) {
+        AnAus = 1
+    } else {
+        AnAus = 0
     }
 })
