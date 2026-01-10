@@ -1,7 +1,7 @@
 function zeigeAchtung () {
     dunkelRot = neopixel.rgb(0, 204, 0)
     hellRot = neopixel.rgb(130, 0, 0)
-    for (let Index = 0; Index <= 63; Index++) {
+    for (let Index = 0; Index <= 127; Index++) {
         strip.setPixelColor(Index, neopixel.colors(NeoPixelColors.Black))
     }
     strip.setPixelColor(2, dunkelRot)
@@ -46,7 +46,7 @@ function zeigeSmiley () {
     zeile6 = neopixel.rgb(0, 229, 225)
     zeile7 = neopixel.rgb(0, 13, 255)
     zeile8 = neopixel.rgb(255, 0, 255)
-    for (let Index = 0; Index <= 63; Index++) {
+    for (let Index = 0; Index <= 127; Index++) {
         strip.setPixelColor(Index, neopixel.colors(NeoPixelColors.Black))
     }
     strip.setPixelColor(0, zeile1)
@@ -113,11 +113,23 @@ function zeigeSmiley () {
     strip.setPixelColor(61, zeile8)
     strip.setPixelColor(62, zeile8)
     strip.setPixelColor(63, zeile8)
+    strip.setPixelColor(Regenbogen + 64, neopixel.colors(NeoPixelColors.Red))
+    strip.setPixelColor(Regenbogen + 65, neopixel.colors(NeoPixelColors.Orange))
+    strip.setPixelColor(Regenbogen + 66, neopixel.colors(NeoPixelColors.Yellow))
+    strip.setPixelColor(Regenbogen + 67, neopixel.colors(NeoPixelColors.Green))
+    strip.setPixelColor(Regenbogen + 68, neopixel.colors(NeoPixelColors.Blue))
+    strip.setPixelColor(Regenbogen + 69, neopixel.colors(NeoPixelColors.Indigo))
+    strip.setPixelColor(Regenbogen + 70, neopixel.colors(NeoPixelColors.Violet))
+    Regenbogen += 1
+    if (Regenbogen > 63) {
+        Regenbogen = 0
+    }
     strip.show()
 }
 let Lichtsensor = 0
 let Warnung = 0
 let AnAus = 0
+let Regenbogen = 0
 let zeile8 = 0
 let zeile7 = 0
 let zeile6 = 0
