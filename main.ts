@@ -135,7 +135,7 @@ function zeigeSmiley () {
     strip.setPixelColor(Regenbogen + 83, neopixel.colors(NeoPixelColors.Violet))
     strip.setPixelColor(Regenbogen + 84, neopixel.colors(NeoPixelColors.Violet))
     Regenbogen += 1
-    if (Regenbogen > 63) {
+    if (Regenbogen > 42) {
         Regenbogen = 0
     }
     strip.show()
