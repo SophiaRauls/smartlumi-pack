@@ -32,6 +32,9 @@ function zeigeAchtung () {
     strip.setPixelColor(36, hellRot)
     strip.setPixelColor(51, hellRot)
     strip.setPixelColor(52, hellRot)
+    for (let Index = 0; Index <= 63; Index++) {
+        strip.setPixelColor(Index + 64, neopixel.colors(NeoPixelColors.Red))
+    }
     strip.show()
 }
 function zeigeSmiley () {
